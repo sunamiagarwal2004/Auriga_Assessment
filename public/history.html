@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borrower History - AV Room Gear Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>🎥 AV Room Gear Tracker</h1>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Dashboard</a>
+        <a href="book.html" class="nav-link">Book Equipment</a>
+        <a href="bookings.html" class="nav-link">Active Bookings</a>
+        <a href="availability.html" class="nav-link">Check Availability</a>
+        <a href="history.html" class="nav-link active">Borrower History</a>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <section class="history-section">
+        <h2>Borrower History & Profile</h2>
+        <p class="subtitle">Look up borrower information and booking history</p>
+
+        <!-- Search Form -->
+        <form id="history-form" class="form">
+          <div class="form-group">
+            <label for="search-student-id">Student ID *</label>
+            <input
+              type="text"
+              id="search-student-id"
+              name="student_id"
+              placeholder="e.g., STU-2024-001"
+              required
+            />
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+        </form>
+
+        <!-- Results -->
+        <div id="history-results" class="history-results hidden">
+          <!-- Borrower Info -->
+          <div class="borrower-card">
+            <h3 id="result-name"></h3>
+            <p>Student ID: <span id="result-student-id"></span></p>
+            <p>Email: <span id="result-email"></span></p>
+          </div>
+
+          <!-- Stats -->
+          <div class="stats-grid">
+            <div class="stat-box">
+              <h4>Total Bookings</h4>
+              <p class="stat-value" id="total-bookings">0</p>
+            </div>
+            <div class="stat-box">
+              <h4>Times Late</h4>
+              <p class="stat-value warning" id="times-late">0</p>
+            </div>
+            <div class="stat-box">
+              <h4>Total Late Fees</h4>
+              <p class="stat-value" id="total-fees">₹0</p>
+            </div>
+          </div>
+
+          <!-- Active Bookings -->
+          <div class="bookings-list">
+            <h4>Active Bookings</h4>
+            <div id="active-list"></div>
+          </div>
+
+          <!-- Returned Bookings -->
+          <div class="bookings-list">
+            <h4>Returned Bookings</h4>
+            <div id="returned-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 AV Room Gear Tracker. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="history.js"></script>
+</body>
+</html>

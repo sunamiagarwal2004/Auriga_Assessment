@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Equipment - AV Room Gear Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>🎥 AV Room Gear Tracker</h1>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Dashboard</a>
+        <a href="book.html" class="nav-link active">Book Equipment</a>
+        <a href="bookings.html" class="nav-link">Active Bookings</a>
+        <a href="availability.html" class="nav-link">Check Availability</a>
+        <a href="history.html" class="nav-link">Borrower History</a>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <section class="booking-form-section">
+        <h2>Book Equipment</h2>
+        <p class="subtitle">Reserve gear for your event or project</p>
+
+        <div id="message" class="message hidden"></div>
+
+        <form id="booking-form" class="form">
+          <!-- Student ID -->
+          <div class="form-group">
+            <label for="student-id">Student ID *</label>
+            <input
+              type="text"
+              id="student-id"
+              name="student_id"
+              placeholder="e.g., STU-2024-001"
+              required
+            />
+            <div id="student-info" class="student-info hidden">
+              <p><strong id="borrower-name"></strong></p>
+              <p id="borrower-email"></p>
+            </div>
+          </div>
+
+          <!-- Equipment Type -->
+          <div class="form-group">
+            <label for="equipment-type">Equipment Type *</label>
+            <select id="equipment-type" name="equipment_type_id" required>
+              <option value="">-- Select equipment --</option>
+            </select>
+            <div id="type-info" class="type-info hidden">
+              <p>Deposit: <strong id="deposit-amount"></strong></p>
+              <p>Late Fee: <strong id="late-fee"></strong>/day</p>
+              <p>Max Duration: <strong id="max-days"></strong> days</p>
+            </div>
+          </div>
+
+          <!-- Checkout Date -->
+          <div class="form-group">
+            <label for="checkout-date">Checkout Date *</label>
+            <input
+              type="date"
+              id="checkout-date"
+              name="checkout_date"
+            />
+          </div>
+
+          <!-- Summary -->
+          <div id="booking-summary" class="booking-summary hidden">
+            <h3>Booking Summary</h3>
+            <p>Expected Return: <strong id="expected-return"></strong></p>
+            <p>Deposit Required: <strong id="summary-deposit"></strong></p>
+          </div>
+
+          <!-- Submit -->
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submit-btn">Reserve Equipment</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 AV Room Gear Tracker. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="book.js"></script>
+</body>
+</html>

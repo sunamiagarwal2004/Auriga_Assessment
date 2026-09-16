@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Availability - AV Room Gear Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>🎥 AV Room Gear Tracker</h1>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Dashboard</a>
+        <a href="book.html" class="nav-link">Book Equipment</a>
+        <a href="bookings.html" class="nav-link">Active Bookings</a>
+        <a href="availability.html" class="nav-link active">Check Availability</a>
+        <a href="history.html" class="nav-link">Borrower History</a>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <section class="availability-section">
+        <h2>Check Equipment Availability</h2>
+        <p class="subtitle">Find which equipment is free during your desired dates</p>
+
+        <form id="availability-form" class="form availability-form">
+          <!-- Equipment Type -->
+          <div class="form-group">
+            <label for="equip-type">Equipment Type *</label>
+            <select id="equip-type" name="equipment_type_id" required>
+              <option value="">-- Select equipment --</option>
+            </select>
+          </div>
+
+          <!-- From Date -->
+          <div class="form-group">
+            <label for="from-date">From Date *</label>
+            <input type="date" id="from-date" name="from_date" required />
+          </div>
+
+          <!-- To Date -->
+          <div class="form-group">
+            <label for="to-date">To Date *</label>
+            <input type="date" id="to-date" name="to_date" required />
+          </div>
+
+          <!-- Submit -->
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Check Availability</button>
+          </div>
+        </form>
+
+        <!-- Results -->
+        <div id="availability-results" class="availability-results hidden">
+          <h3 id="results-title"></h3>
+          <div class="availability-summary">
+            <p>Available: <strong id="available-count"></strong> / <strong id="total-count"></strong></p>
+          </div>
+          <table class="availability-table">
+            <thead>
+              <tr>
+                <th>Unit Label</th>
+                <th>Status</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody id="availability-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 AV Room Gear Tracker. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="availability.js"></script>
+</body>
+</html>

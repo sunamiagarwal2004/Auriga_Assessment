@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Active Bookings - AV Room Gear Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>🎥 AV Room Gear Tracker</h1>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Dashboard</a>
+        <a href="book.html" class="nav-link">Book Equipment</a>
+        <a href="bookings.html" class="nav-link active">Active Bookings</a>
+        <a href="availability.html" class="nav-link">Check Availability</a>
+        <a href="history.html" class="nav-link">Borrower History</a>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <section class="bookings-section">
+        <h2>Bookings Management</h2>
+        <p class="subtitle">Track and manage all equipment checkouts and returns</p>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+          <button class="tab-btn active" data-filter="active">Active</button>
+          <button class="tab-btn" data-filter="overdue">Overdue</button>
+          <button class="tab-btn" data-filter="returned">Returned</button>
+        </div>
+
+        <!-- Bookings Table -->
+        <div id="bookings-container" class="table-wrapper">
+          <table class="bookings-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Borrower</th>
+                <th>Equipment</th>
+                <th>Checkout</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="bookings-tbody">
+              <tr class="loading">
+                <td colspan="7">Loading bookings...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Return Modal -->
+    <div id="return-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close" id="close-modal">&times;</span>
+        <h3>Return Equipment</h3>
+        <form id="return-form" class="form">
+          <input type="hidden" id="return-booking-id" />
+          
+          <div class="form-group">
+            <label for="condition-return">Condition at Return *</label>
+            <select id="condition-return" name="condition_at_return" required>
+              <option value="">-- Select condition --</option>
+              <option value="good">Good</option>
+              <option value="fair">Fair</option>
+              <option value="damaged">Damaged</option>
+              <option value="lost">Lost</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="damage-cost">Damage Cost (₹)</label>
+            <input
+              type="number"
+              id="damage-cost"
+              name="damage_cost"
+              min="0"
+              value="0"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="return-notes">Notes</label>
+            <textarea
+              id="return-notes"
+              name="notes"
+              placeholder="Add any notes about the return..."
+            ></textarea>
+          </div>
+
+          <div id="fee-breakdown" class="fee-breakdown hidden"></div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Confirm Return</button>
+            <button type="button" class="btn btn-secondary" id="cancel-return">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 AV Room Gear Tracker. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="bookings.js"></script>
+</body>
+</html>
